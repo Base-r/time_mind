@@ -1,0 +1,33 @@
+# Flutter
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Runner.xcworkspace
+android/.gradle
+android/captures/
+android/app/debug
+android/key.properties
+
+# Go
+bin/
+*.exe
+*.test
+*.out
+vendor/
+
+# Firebase
+firebase-debug.log
+
+# Docker
+*.env
+.env.*
+docker-compose.override.yml
+
+# VS Code
+.vscode/
