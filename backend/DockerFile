@@ -1,4 +1,4 @@
-FROM golang:1.21
+FROM golang:1.24.4
 
 WORKDIR /app
 
@@ -7,3 +7,6 @@ COPY . .
 RUN go mod download
 
 CMD ["go", "run", "main.go"]
+
+COPY wait-for-it.sh /app/wait-for-it.sh
+RUN chmod +x /app/wait-for-it.sh

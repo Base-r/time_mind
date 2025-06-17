@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "184167105170",
+    "project_id": "time-mind",
+    "storage_bucket": "time-mind.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:184167105170:android:6151d7601f9ce0d695dc4b",
+        "android_client_info": {
+          "package_name": "com.example.time_mind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrtel1jOUUHugYqUoegfoOsvJJ7CdbP5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
