@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   time_mind_db:
     image: postgres:17
@@ -10,25 +12,31 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
     networks:
       - backend
-  
+
   backend:
-    build: 
+    build:
       context: ../backend
-      dockerfile: Dockerfile
+      dockerfile: ./Dockerfile
     container_name: time-mind-backend
     ports:
       - "8080:8080"
     depends_on:
       - time_mind_db
-    command: ["./wait-for-it.sh", "db:5432", "--", "go", "run", "main.go"]
+    command: [ "./wait-for-it.sh", "time_mind_db:5432", "--", "go", "run", "main.go" ]
+    environment:
+      - DATABASE_URL=postgresql://time_mind_user:supersecretpassword@time_mind_db:5432/time_mind_db?sslmode=disable
+
     env_file:
-      - ../.env
+      - ./.env
     networks:
       - backend
 
 volumes:
   pgdata:
+
+
 networks:
   backend:

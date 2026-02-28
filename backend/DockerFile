@@ -2,11 +2,17 @@ FROM golang:1.24.4
 
 WORKDIR /app
 
-COPY . .
+# Копируем файлы go.mod и go.sum
+COPY go.mod go.sum ./
 
+# Загружаем зависимости
 RUN go mod download
 
-CMD ["go", "run", "main.go"]
+# Копируем всё приложение внутрь контейнера
+COPY . .
 
+# Копируем wait-for-it.sh в нужное место (если он там лежит)
 COPY wait-for-it.sh /app/wait-for-it.sh
 RUN chmod +x /app/wait-for-it.sh
+
+# Команда по умолчанию указывается в docker-compose.yml
